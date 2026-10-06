@@ -8,7 +8,7 @@ Puedes clonar este repositorio usando Git o descargarlo como un archivo ZIP y ex
 
 **Opción 1: Clonar con Git**
 ```powershell
-git clone <URL-del-repositorio>
+git clone https://github.com/javiarmesto/Lab1_3_Ejemplo_Explicativo.git
 ```
 
 **Opción 2: Descargar ZIP**
