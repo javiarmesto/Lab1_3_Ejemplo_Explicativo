@@ -1,5 +1,21 @@
 # Guía de instalación y configuración
 
+## Antes de empezar
+
+Demostración Copilot para **proponer sustitutos de artículos**: genera propuestas en un PromptDialog y permite revisar/confirmar sustituciones.
+
+**Referencia del checkout:** `application 26.0.0.0`, `runtime 15.0`; extensión `2-ItemSubstitution Demo` versión `0.10.0.0`. Es la configuración del manifiesto, no una prueba de compatibilidad con otros entornos.
+
+1. Clona `https://github.com/javiarmesto/Lab1_3_Ejemplo_Explicativo.git` y abre la carpeta en VS Code con AL Language.
+2. Configura tu sandbox en `.vscode/launch.json` (créalo si falta), comprueba las dependencias de [app.json](app.json) y descarga símbolos con **AL: Download Symbols**.
+3. Compila con `Ctrl+Shift+B`; publica en el sandbox con `F5` cuando hayas completado la configuración específica del ejemplo.
+4. Abre las sustituciones de un artículo y la acción **Suggest with Copilot (Demo Workshop)**. Tras configurar autorización y datos, revisa la propuesta antes de confirmar.
+
+**Mapa del ejemplo:** `CopilotCodeunits/`: generación y capacidad; `Internals/`: almacenamiento/configuración e integración; `PromptDialog/`: propuesta; `Test/`: escenarios de sustitución.
+
+**Límites:** Requiere AI Test Toolkit 26.0.0.0 según el manifiesto. La demostración no es para producción; las pruebas AI necesitan entorno y configuración propios. La revisión documental del 6 de octubre de 2026 es estática; no acredita compilación, publicación ni llamadas a servicios externos.
+
+
 Esta guía te ayudará a crear y ejecutar la aplicación desde cero. Sigue los pasos cuidadosamente. Si tienes dudas, consulta las ayudas incluidas en cada sección.
 
 ## 1. Clonar o copiar el repositorio
@@ -41,7 +57,7 @@ Para usar tu propia capacidad de Azure OpenAI:
 
 1. Abre la codeunit responsable de la configuración de Azure OpenAI (por ejemplo, `SecretsAndCapabilitiesSetup.Codeunit.al`).
 2. Busca la sección donde se configuran los parámetros de Azure OpenAI (como endpoint, API key, deployment name, etc.).
-3. Sustituye los valores de ejemplo por los de tu propia cuenta de Azure OpenAI.
+3. Configura endpoint, deployment y secreto mediante las funciones de `IsolatedStorageWrapper.Codeunit.al` en tu copia. Los getters fallan si no existe configuración; no pegues secretos en código versionado.
 
 **Ayuda:** Si no tienes una cuenta de Azure OpenAI, puedes crear una desde el portal de Azure: https://portal.azure.com y solicitar acceso a Azure OpenAI en https://aka.ms/oai/access.
 
